@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Contacto | Web Personal{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Información de Contacto</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-custom p-4 bg-white text-center">
+                {% if persona %}
+                    <p class="fs-5"><strong>Correo Electrónico:</strong><br> <a href="mailto:{{ persona.correo_electronico }}">{{ persona.correo_electronico }}</a></p>
+                    <hr>
+                    <p class="fs-5"><strong>Teléfono:</strong><br> {{ persona.telefono }}</p>
+                    <hr>
+                    <p class="fs-5"><strong>Dirección:</strong><br> {{ persona.direccion }}</p>
+                {% else %}
+                    <p class="text-muted">Sin datos de contacto cargados.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

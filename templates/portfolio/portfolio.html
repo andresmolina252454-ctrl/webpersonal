@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Portafolio | Web Personal{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Mis Proyectos</h2>
+    <div class="row g-4">
+        {% if projects %}
+            {% for project in projects %}
+                <div class="col-md-4">
+                    <div class="card card-custom h-100 bg-white">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 200px; object-fit: cover;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">{{ project.title }}</h5>
+                            <p class="card-text text-secondary">{{ project.description }}</p>
+                        </div>
+                        {% if project.link %}
+                            <div class="card-footer bg-transparent border-0 pb-3">
+                                <a href="{{ project.link }}" target="_blank" class="btn btn-outline-primary btn-sm w-100">Ver Proyecto</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-center">
+                <p class="text-muted">No hay proyectos registrados en el portafolio.</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

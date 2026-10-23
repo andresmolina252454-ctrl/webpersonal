@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Inicio | Web Personal{% endblock %}
+
+{% block content %}
+<div class="hero text-center mb-5">
+    <div class="container">
+        {% if persona %}
+            <h1 class="display-4 fw-bold">{{ persona.nombres }} {{ persona.apellidos }}</h1>
+            <p class="lead text-info fw-semibold">{{ persona.titulo_academico }}</p>
+            <p class="badge bg-primary fs-6">{{ persona.dedicacion }}</p>
+        {% else %}
+            <h1 class="display-4 fw-bold">Bienvenido a mi Web Personal</h1>
+            <p class="lead">Carga tus datos en el Panel de Administración.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card card-custom p-4 bg-white">
+                <h3 class="border-bottom pb-2 text-primary">Biografía</h3>
+                <p class="mt-3 text-secondary" style="line-height: 1.8;">
+                    {% if persona %}
+                        {{ persona.biografia }}
+                    {% else %}
+                        No hay biografía registrada.
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
