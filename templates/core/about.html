@@ -1,27 +1,22 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
-{% block title %}Sobre mí | Web Personal{% endblock %}
+{% block title %}Acerca de | Web Personal{% endblock %}
+
+{% block background %}{% static 'core/img/about-bg.jpg' %}{% endblock %}
+
+{% block headers %}
+  <h1>Acerca de mí</h1>
+  <span class="subheading">Conoce más sobre mi trayectoria</span>
+{% endblock %}
 
 {% block content %}
-<div class="container my-5">
-    <h2 class="text-center fw-bold mb-4">Acerca de Mí</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card card-custom p-4 bg-white">
-                {% if persona %}
-                    <h4 class="text-primary mb-3">{{ persona.nombres }} {{ persona.apellidos }}</h4>
-                    <ul class="list-group list-group-flush mb-3">
-                        <li class="list-group-item"><strong>Título Académico:</strong> {{ persona.titulo_academico }}</li>
-                        <li class="list-group-item"><strong>Dedicación:</strong> {{ persona.dedicacion }}</li>
-                        <li class="list-group-item"><strong>Dirección:</strong> {{ persona.direccion }}</li>
-                    </ul>
-                    <h5 class="text-secondary mt-3">Perfil Profesional</h5>
-                    <p class="text-muted">{{ persona.biografia }}</p>
-                {% else %}
-                    <p class="text-muted">Ingresa tus datos desde el administrador.</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
+<div class="row">
+  <div class="col-lg-8 col-md-10 mx-auto">
+    <h2 class="section-heading mb-4">Sobre mí</h2>
+    <p class="lead">
+      Estudiante de la carrera de Tecnología de la Información en la Universidad Técnica de Manabí.
+    </p>
+  </div>
 </div>
 {% endblock %}
